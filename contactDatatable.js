@@ -107,7 +107,14 @@ export default class ContactDatatable extends NavigationMixin(LightningElement) 
     }
    
 
-  
+    handleChange(event) {
+        this.pageSize=event.detail.value;
+        this.totalPage = Math.ceil(this.totalRecountCount / this.pageSize); 
+        this.endingRecord = this.pageSize;
+        this.displayRecordPerPage(1);
+        this.page=1; 
+    }
+    
     columns=columns;
     @wire(getContacts , { nameVar:'$nameVar'})
     wiredAccounts({ error, data }) {
