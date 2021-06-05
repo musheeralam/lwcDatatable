@@ -9,6 +9,11 @@
                 options={options}
                 onchange={handleChange} ></lightning-combobox>
         </div>
+        
+        <div class="slds-col slds-size_1-of-3 slds-p-right_medium">
+            <lightning-input label='Account Name' onchange={changeHandler}  type='search'></lightning-input>
+        </div>
+
         <div class="slds-m-around_x-large">
             <lightning-datatable key-field="Id" 
                 data={data}

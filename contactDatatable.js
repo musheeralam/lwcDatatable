@@ -114,7 +114,8 @@ export default class ContactDatatable extends NavigationMixin(LightningElement) 
         this.displayRecordPerPage(1);
         this.page=1; 
     }
-    
+
+
     columns=columns;
     @wire(getContacts , { nameVar:'$nameVar'})
     wiredAccounts({ error, data }) {
@@ -129,6 +130,13 @@ export default class ContactDatatable extends NavigationMixin(LightningElement) 
         } else if (error) {
             this.error = error;
             this.data = undefined;
+        }
+    }
+
+    changeHandler(event){
+        this.nameVar=event.target.value;
+        if(event.target.value==''){
+            this.nameVar='str';
         }
     }
        
